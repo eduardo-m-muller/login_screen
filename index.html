@@ -4,34 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Fonte de ícones (o olhinho da senha vem daqui) -->
+    <!-- icones, o olhinho da senha vem daqui -->
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 
-    <!-- Liga o arquivo de estilo (style.css) a esta página -->
+    <!-- css da pagina -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Texto que aparece na aba do navegador -->
+    <!-- depois troco esse titulo -->
     <title>Document</title>
 </head>
 <body>
 
-    <!-- Caixa central da tela de login: tudo fica dentro dela -->
+    <!-- caixa do login -->
     <div id="body-container">
 
-        <!-- Título -->
         <h2>CloudNest</h2>
 
-        <!-- Campo de usuário -->
         <input type="text" id="username" placeholder="nome de usuario">
 
-        <!-- Campo de senha + olhinho.
-             A div existe pra que o ícone possa se posicionar dentro do campo. -->
+        <!-- coloquei numa div pra conseguir por o olho dentro do campo -->
         <div class="password-field">
             <input type="password" id="password" placeholder="senha">
             <span class="lnr lnr-eye"></span>
         </div>
 
-        <!-- Botões -->
+        <!-- botoes -->
         <div id="button">
             <button type="submit" id="entrarBtn">entrar</button>
         <a href="register.html">
@@ -41,8 +38,7 @@
 
     </div>
 
-    <!-- Liga o arquivo de script (script.js). Fica no fim do body
-         pra que os elementos acima já existam quando o JS rodar. -->
+    <!-- scripts no final pra carregar depois do html -->
     <script src="JavaScript/olho.js"></script>
     <script src="JavaScript/account.js"></script>
 
