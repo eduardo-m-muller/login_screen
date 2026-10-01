@@ -1,0 +1,154 @@
+/* ==========================================================================
+   CloudNest - tela de login
+   Índice:
+   1. Página (body)
+   2. Caixa central (#body-container)
+   3. Caixa roxa (#input-container)
+   4. Campos de texto e senha (input)
+   5. Campo de senha e olhinho (.password-field, .lnr-eye)
+   6. Campos em foco (quando você clica neles)
+   7. Botões (#button)
+   ========================================================================== */
+
+
+/* 1. PÁGINA -----------------------------------------------------------------
+   Define a fonte, a imagem de fundo e centraliza tudo na tela.             */
+body {
+    /* Fonte: o navegador tenta a primeira, se não tiver vai pra próxima */
+    font-family: Avantgarde, "TeX Gyre Adventor", "URW Gothic L", sans-serif;
+
+    /* Centralização: flex + align (vertical) + justify (horizontal) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Imagem de fundo */
+    background-image: url("images/background.jpg");
+    background-size: cover;            /* cobre a tela toda */
+    background-repeat: no-repeat;      /* não repete a imagem */
+    background-attachment: fixed;      /* fica parada quando rola a página */
+
+    margin: 0;                         /* tira a margem padrão do navegador */
+    min-height: 100vh;                 /* altura mínima = altura da tela */
+}
+
+
+/* 2. CAIXA CENTRAL -----------------------------------------------------------
+   Container que agrupa título, inputs e botões.                            */
+#body-container {
+    background-color: transparent;
+    color: white;
+    display: flex;
+
+    border-radius: 20px;
+    flex-direction: column;            /* itens um embaixo do outro */
+    gap: 10px;                         /* espaço entre os itens */
+
+    text-align: center;
+    padding: 10px;
+    width: 270px;                      /* largura fixa da caixa */
+}
+
+
+/* 3. CAIXA ROXA ---------------------------------------------------------------
+   Obs: esse id não existe no HTML atual, então esta regra não faz nada
+   por enquanto.                                                            */
+#input-container {
+    background-color: purple;
+    border-radius: 20px;
+    padding-top: 10px;
+    flex-direction: column;
+}
+
+
+/* 4. CAMPOS DE TEXTO E SENHA ---------------------------------------------------
+   As duas linhas de seletor separadas por vírgula aplicam o mesmo estilo
+   aos dois inputs.                                                          */
+input[type="text"],
+input[type="password"] {
+    box-sizing: border-box;            /* o width passa a incluir padding e borda (alinha com os botões) */
+    width: 100%;                       /* Faz o input ocupar a largura da caixa */
+    padding: 12px;                     /* Espaçamento interno para o texto respirar */
+    margin-bottom: 20px;               /* Espaço entre o usuário e a senha */
+
+    /* Efeito de Vidro Cinza */
+    background: rgba(40, 40, 40, 0.4);          /* Cinza escuro com 40% de opacidade */
+    backdrop-filter: blur(8px);                 /* Desfoca o fundo da imagem atrás do input */
+    -webkit-backdrop-filter: blur(8px);         /* Compatibilidade com navegadores Safari */
+
+    /* Borda e Cantos */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda branca quase invisível */
+    border-radius: 8px;                         /* Arredonda levemente os cantos */
+
+    /* Texto de dentro do input */
+    color: #ffffff;                    /* Texto branco ao digitar */
+    font-size: 14px;
+    outline: none;                     /* Remove aquela borda amarela/azul padrão */
+    transition: all 0.3s ease;         /* Transição suave ao clicar */
+}
+
+
+/* 5. CAMPO DE SENHA E OLHINHO --------------------------------------------------
+   Estas regras vêm DEPOIS da seção 4 de propósito: quando duas regras têm
+   a mesma força, a que vem por último ganha.                               */
+
+/* A div é a "referência" pro olhinho se posicionar */
+.password-field {
+    position: relative;                /* o ícone se posiciona em relação a esta div */
+    margin-bottom: 20px;               /* o espaço que antes vinha do input */
+}
+
+/* A margem agora é da div; se ficasse no input, o ícone descentralizaria */
+.password-field input {
+    margin-bottom: 0;
+    padding-right: 40px;               /* reserva espaço à direita pro texto não ficar embaixo do olhinho */
+}
+
+/* Olhinho: fica dentro da barra, do lado direito, centralizado na vertical */
+.lnr-eye {
+    position: absolute;
+    top: 50%;                          /* metade da altura da div... */
+    transform: translateY(-50%);       /* ...menos metade da altura do ícone = centralizado */
+    right: 12px;
+    cursor: pointer;
+}
+
+
+/* 6. CAMPOS EM FOCO ------------------------------------------------------------
+   :focus = quando o campo está selecionado (você clicou nele).             */
+input[type="text"]:focus,
+input[type="password" ]:focus {
+    background: rgba(60, 60, 60, 0.6);          /* Escurece um pouquinho */
+    border-color: #808080;                      /* Borda brilha no mesmo tom de rosa/vermelho do fundo */
+    box-shadow: 0 0 10px white; /* Sombra neon suave */
+}
+
+
+/* 7. BOTÕES ---------------------------------------------------------------------
+   Estilo base, hover (mouse por cima) e active (mouse apertado).
+   A ordem importa: o active fica por último.                               */
+#button {
+    display: flex;
+    gap: 10px;                         /* espaço entre os botões */
+}
+
+#button button {
+    flex: 1;                           /* cada botão ocupa a mesma parte do espaço da linha */
+    padding: 12px 24px;
+    color: #ffffff;
+    background: rgba(40, 40, 40, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;        /* velocidade do efeito de hover/active */
+}
+
+#button button:hover {
+    background: rgba(60, 60, 60, 0.6);
+    border-color: #808080;
+    box-shadow: 0 0 10px white;
+}
+
+#button button:active {
+    transform: scale(0.95);            /* diminui pra 95% ao clicar */
+}

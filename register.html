@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonte de ícones (o olhinho da senha vem daqui) -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+    <!-- Reaproveita o MESMO estilo da tela de login -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Texto que aparece na aba do navegador -->
+    <title>CloudNest | Cadastro</title>
+</head>
+<body>
+
+    <!-- Caixa central: mesma estrutura do login -->
+    <div id="body-container">
+
+        <!-- Título -->
+        <h2>CloudNest</h2>
+
+        <!-- Campo de usuário -->
+        <input type="text" id="username" placeholder="nome de usuario">
+
+        <!-- Campo de senha + olhinho (o script.js já funciona aqui) -->
+        <div class="password-field">
+            <input type="password" id="password" placeholder="senha">
+            <span class="lnr lnr-eye"></span>
+        </div>
+
+        <!-- Confirmação da senha (o olhinho acima só controla o campo "senha") -->
+        <input type="password" id="confirm-password" placeholder="confirmar senha">
+
+        <!-- Botões -->
+        <div id="button">
+            <button type="submit" id="register-button">cadastrar</button>
+            <!-- type="button" = não envia nada sozinho. Como voltar pro login
+            (link ou JS) fica por sua conta. -->
+            <button onclick="history.back()">Voltar</button>
+        </div>
+
+    </div>
+
+    <script src="JavaScript/olho.js"></script>
+    <script src="JavaScript/account.js"></script>
+
+</body>
+</html>
